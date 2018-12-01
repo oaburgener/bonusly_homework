@@ -22,12 +22,15 @@ $(document).ready(function(){
     $bonuses.done(function(data) {
         let bonuses = data.result;
         console.log(bonuses);
+        for (var i = 0; i < bonuses.length; i++) {
+          $(".user_info").append('<div>')
+        }
         $(".bonus_feed").on("click", function(event){
           event.preventDefault();
           $(".feed_list").empty();
           for (let i = 0; i < bonuses.length; i++) {
             $(".feed_list").append(
-              '<div class="bonus_item"> <h3>' + bonuses[i].giver.display_name + '<h3><p>' + bonuses[i].reason_html + '</p></div>'
+              '<div class="bonus_item"> <h3>' + bonuses[i].giver.display_name + '<h3><p>' + bonuses[i].reason_html + '</p><span class="points">+'+bonuses[i].amount_with_currency+'!</span></div>'
           );}
         });
         $(".hashtag_feed").on("click", function(event){
@@ -55,7 +58,7 @@ $(document).ready(function(){
       let users = usersData.result;
       let statusImg = "";
       for (let i = 0; i < users.length; i++) {
-        if(users[i].status === "active") {
+        if(users[i].can_give === true) {
           statusImg = '<i class="fas fa-circle"></i>'
         }else{
           statusImg = '<i class="fas fa-times-circle"></i>'
