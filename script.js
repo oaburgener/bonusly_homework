@@ -9,9 +9,6 @@ $(document).ready(function(){
     cssEase: 'linear',
     centerMode: true
   });
-  setTimeout(function(){
-    $('.user_tip, .user_tip:before').fadeIn(500);
-  }, 5000);
     var $bonuses = $.ajax({
       method: 'GET',
       url: 'https://bonus.ly/api/v1/bonuses?access_token=a944257795730724197edf48bd2fba6d',
