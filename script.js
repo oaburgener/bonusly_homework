@@ -7,8 +7,6 @@ $(document).ready(function(){
     autoplay: true,
     autoPlaySpeed: 100000,
     cssEase: 'linear',
-    // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-    // nextArrow: '<button type="button" class="slick-next">Next</button>',
     centerMode: true
   });
   setTimeout(function(){
@@ -21,17 +19,17 @@ $(document).ready(function(){
     });
     $bonuses.done(function(data) {
         let bonuses = data.result;
-        console.log(bonuses);
-        for (var i = 0; i < bonuses.length; i++) {
-          $(".user_info").append('<div>')
-        }
-        $(".bonus_feed").on("click", function(event){
-          event.preventDefault();
-          $(".feed_list").empty();
+        function loadBonuses () {
           for (let i = 0; i < bonuses.length; i++) {
             $(".feed_list").append(
               '<div class="bonus_item"> <h3>' + bonuses[i].giver.display_name + '<h3><p>' + bonuses[i].reason_html + '</p><span class="points">+'+bonuses[i].amount_with_currency+'!</span></div>'
           );}
+        }
+        loadBonuses();
+        $(".bonus_feed").on("click", function(event){
+          event.preventDefault();
+          $(".feed_list").empty();
+          loadBonuses();
         });
         $(".hashtag_feed").on("click", function(event){
           event.preventDefault();
