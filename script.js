@@ -1,15 +1,19 @@
+let baseUrl = "https://bonus.ly";
 $(document).ready(function(){
   $('.recent_comments').slick({
     dots: true,
     infinite: true,
     speed: 500,
-    fade: true,
+    autoplay: true,
+    autoPlaySpeed: 100000,
     cssEase: 'linear',
-    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-    nextArrow: '<button type="button" class="slick-next">Next</button>',
+    // prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+    // nextArrow: '<button type="button" class="slick-next">Next</button>',
     centerMode: true
   });
-
+  setTimeout(function(){
+    $('.user_tip, .user_tip:before').fadeIn(500);
+  }, 5000);
     var $bonuses = $.ajax({
       method: 'GET',
       url: 'https://bonus.ly/api/v1/bonuses?access_token=a944257795730724197edf48bd2fba6d',
@@ -18,20 +22,23 @@ $(document).ready(function(){
     $bonuses.done(function(data) {
         let bonuses = data.result;
         console.log(bonuses);
-        $(".bonus_feed").on("click", function(){
+        $(".bonus_feed").on("click", function(event){
+          event.preventDefault();
+          $(".feed_list").empty();
           for (let i = 0; i < bonuses.length; i++) {
-            $('.feed_list').append(
+            $(".feed_list").append(
               '<div class="bonus_item"> <h3>' + bonuses[i].giver.display_name + '<h3><p>' + bonuses[i].reason_html + '</p></div>'
           );}
         });
-        $(".hashtag_feed").on("click", function(){
-          $("feed_list").empty();
+        $(".hashtag_feed").on("click", function(event){
+          event.preventDefault();
+          $(".feed_list").empty();
           for (let i = 0; i < bonuses.length; i++) {
-            if(bonuses[i].hashtag !== "" || bonuses[i].hashtag !== null){
+            // if(bonuses[i].hashtag !== "" || bonuses[i].hashtag !== null){
               $(".feed_list").append(
                 '<div class="hashtag_item"><h2>' + bonuses[i].hashtag + '</h2></div>'
               );
-            }
+            // }
           }
         });
     });
@@ -55,13 +62,17 @@ $(document).ready(function(){
         }
         $(".user_list").append('<li class="user_item"><img src="'+users[i].profile_pic_url+'" alt="profile picture"/><span>' + users[i].display_name + statusImg +'</span></li>')
       }
-      $(".user_feed").on("click", function(){
+      $(".user_feed").on("click", function(event){
+        event.preventDefault();
         $(".feed_list").empty();
         for (let i = 0; i < users.length; i++) {
           $(".feed_list").append(
-            '<div class="user_item"><img src="'+users[i].profile_pic_url+'" alt="profile picture"/></div>'
+            '<div class="user_feed_item"><a href="'+baseUrl+users[i].path+'"><img src="'+users[i].profile_pic_url+'" alt="profile picture"/></a><h3>'+users[i].full_name+'</h3></div>'
           )
         }
       })
     })
+    $users.fail(function(err) {
+    console.log(err);
+    });
 });
