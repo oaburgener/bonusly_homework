@@ -1,8 +1,9 @@
 body {
-  font-family: 'Roboto Slab', serif;
-  /* background-image: url("images/light_honeycomb.png"); */
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
   margin: 0;
   background-color: #e8ecf4;
+  color: #333;
 }
 /*** SLIDER ***/
 .rc_slider {
@@ -33,7 +34,7 @@ body {
 }
 .nav ul li {
   display: inline-block;
-  padding: 5px 10px;
+  padding: 15px 10px;
 }
 .nav ul li i {
   font-size: 30px;
@@ -84,22 +85,32 @@ body {
   display: inline-block;
 }
 .bonus_item {
-  padding: 5px 10px;
+  padding: 10px;
   margin: 5px 10px;
   border: solid 1px #cbcbcd;
   border-radius: 2px;
   background-color: #ffff;
+  font-weight: 300;
   box-shadow: -2px -1px 27px -4px rgba(0,0,0,0.75);
   -webkit-box-shadow: -2px -1px 27px -4px rgba(0,0,0,0.75);
   -moz-box-shadow: -2px -1px 27px -4px rgba(0,0,0,0.75);
+}
+.bonus_item h3, .bonus_item p {
+  font-weight: 300;
 }
 .bonus_item span.points {
   float: right;
   position: relative;
   bottom: 30px;
+  padding: 12px 0;
 }
-.bonus_item .user-link.hovercard-trigger, .bonus_item .hashtag {
+.bonus_item .user-link.hovercard-trigger {
   color: #33CC66;
+  text-decoration: none;
+}
+.bonus_item .hashtag {
+  color: #465156;
+  text-decoration: none;
 }
 /*** USER LIST ***/
 .user_feed_item {
