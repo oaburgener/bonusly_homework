@@ -9,12 +9,12 @@ body {
   position: relative;
 }
 /*** SLIDER ***/
-.rc_slider {
+.tip_slider {
   text-align: center;
   max-height: 200px;
   background-color: #33CC66;
 }
-.rc_slider h2 {
+.tip_slider h2 {
   vertical-align: middle;
 }
 /*** CONTAINER ***/
@@ -109,7 +109,7 @@ body {
   text-decoration: none;
 }
 .bonus_item .hashtag {
-  color: #465156;
+  color: #A5B0B6;
   text-decoration: none;
 }
 /*** HASHTAG LIST ***/
