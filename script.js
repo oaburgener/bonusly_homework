@@ -35,11 +35,12 @@ $(document).ready(function(){
           event.preventDefault();
           $(".feed_list").empty();
           for (let i = 0; i < bonuses.length; i++) {
-            // if(bonuses[i].hashtag !== "" || bonuses[i].hashtag !== null){
+            console.log(bonuses[i].hashtag);
+            if(bonuses[i].hashtag !== null){
               $(".feed_list").append(
                 '<div class="hashtag_item"><h2>' + bonuses[i].hashtag + '</h2></div>'
               );
-            // }
+            }
           }
         });
     });

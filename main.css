@@ -19,7 +19,7 @@ body {
 }
 /*** CONTAINER ***/
 .container {
-  /* display: inline-block; */
+  padding-bottom: 10em;
 }
 /*** NAV BAR ***/
 .nav {
@@ -28,11 +28,9 @@ body {
 }
 .nav ul {
   list-style-type: none;
-  /* text-align: center; */
   margin: 0;
   padding: 0;
   height: 100%;
-  /* background-color: #000; */
 }
 .nav ul li {
   display: inline-block;
@@ -55,7 +53,7 @@ body {
   width: 100px;
   height: 100px;
 }
-/*** USER LIST ***/
+/*** LEFT MARGIN USER LIST ***/
 .sidebar {
   width: 15%;
   display: inline-block;
@@ -80,12 +78,12 @@ body {
   font-size: 12px;
   color: #33CC66;
 }
-/*** BONUS LIST ***/
+/*** FEED CONTAINER ***/
 .feed_list {
   width: 57%;
   display: inline-block;
-  padding-bottom: 6em;
 }
+/*** BONUS LIST ***/
 .bonus_item {
   padding: 10px;
   margin: 5px 10px;
@@ -114,6 +112,10 @@ body {
   color: #465156;
   text-decoration: none;
 }
+/*** HASHTAG LIST ***/
+.hashtag_item {
+  text-align: center;
+}
 /*** USER LIST ***/
 .user_feed_item {
   display: inline-block;
@@ -122,7 +124,7 @@ body {
 .user_feed_item img {
   padding: 43px 43px 5px;
 }
-/*** USER INFO ***/
+/*** RIGHT MARGIN BONUSLY INFO ***/
 .bonusly_info {
   width: 28%;
   display: inline-block;
